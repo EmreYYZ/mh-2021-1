@@ -1,4 +1,4 @@
-import { Deck } from "./components/Deck";
+import { Game } from "./components/Game";
 import { Layout } from "./components/Layout";
 import { LandingPage } from "./pages/LandingPage";
 
@@ -8,7 +8,7 @@ function App() {
       <h1>Card Game, WAR</h1>
       <Layout>
         <LandingPage />
-        <Deck />
+        <Game />
       </Layout>
     </div>
   );

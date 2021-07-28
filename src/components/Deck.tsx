@@ -1,18 +1,24 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import _ from "lodash";
 import { Card } from "./Card";
+import { IState as Props } from "./Game";
 
-interface IState {
-  ogDeck: {
-    id: string;
-    number: string;
-    suit: string;
-  }[];
+interface IProps {
+  deck: Props["deck"];
+
+  setDeck: React.Dispatch<
+    React.SetStateAction<
+      {
+        id: string;
+        number: string;
+        suit: string;
+      }[]
+    >
+  >;
 }
 
-export const Deck = () => {
-  const [ogDeck, setDeck] = useState<IState["ogDeck"]>([]);
+export const Deck: React.FC<IProps> = ({ deck, setDeck }) => {
   const suits: string[] = ["hearts", "clubs", "diamonds", "spades"];
   const numbers: string[] = ["A", "K", "Q", "J", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
@@ -38,7 +44,7 @@ export const Deck = () => {
     <div>
       <p>a deck</p>
       <button onClick={handleClick}>DEAL THE CARDS</button>
-      {ogDeck !== [] ? ogDeck.map((card) => <Card key={uuidv4()} card={card} />) : null}
+      {deck !== [] ? deck.map((card) => <Card key={uuidv4()} card={card} />) : null}
     </div>
   );
 };
