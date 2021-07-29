@@ -5,14 +5,17 @@ interface IProps {
     id: string;
     number: string;
     suit: string;
+    isRed: boolean;
+    symbol: string;
+    symbolAlt: string;
   };
 }
 
 export const Card: React.FC<IProps> = ({ card }) => {
   return (
-    <div className="px-4 py-10 m-4 border-4 rounded-lg cursor-pointer">
-      <p className="text-2xl font-bold">
-        <span>{card.number}</span> of <span>{card.suit}</span>
+    <div className="inline-block w-28 h-36 m-2 border-4 border-gray-300 rounded-lg cursor-pointer bg-gray-50">
+      <p className={`text-2xl text-left m-1 font-bold ${card.isRed ? "text-red-500" : "text-gray-900"}`}>
+        <span className="block">{card.number}</span> <span className="block">{card.symbol}</span>
       </p>
     </div>
   );
