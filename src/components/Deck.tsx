@@ -43,9 +43,10 @@ interface IProps {
       }[]
     >
   >;
+  setIsGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComputerHand }) => {
+export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComputerHand, setIsGameStarted }) => {
   const suits: { suit: string; symbol: string; symbolAlt: string; isRed: boolean }[] = [
     {
       suit: "heart",
@@ -99,6 +100,8 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
     setPlayerHand(shuffledDeck.slice(0, 26));
     // setComputerHand
     setComputerHand(shuffledDeck.slice(26, 52));
+    // start the game ui
+    setIsGameStarted(true);
   };
 
   return (
@@ -107,7 +110,7 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
       <button onClick={handleClick} className="bg-gray-900 text-blue-400 px-4 py-2 rounded-lg">
         DEAL THE CARDS
       </button>
-      {deck !== [] ? deck.map((card) => <Card key={uuidv4()} card={card} />) : null}
+      {/* {deck !== [] ? deck.map((card) => <Card key={uuidv4()} card={card} />) : null} */}
     </div>
   );
 };
