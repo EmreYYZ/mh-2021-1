@@ -145,7 +145,7 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
     <div>
       <p>a deck</p>
       <button onClick={handleClick} className="bg-gray-900 text-blue-400 px-4 py-2 rounded-lg">
-        DEAL THE CARDS
+        Start Game
       </button>
       {/* {deck !== [] ? deck.map((card) => <Card key={uuidv4()} card={card} />) : null} */}
     </div>
