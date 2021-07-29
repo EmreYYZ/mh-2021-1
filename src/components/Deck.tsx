@@ -1,24 +1,11 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
-import _ from "lodash";
-import { Card } from "./Card";
+import _, { shuffle } from "lodash";
 import { IState as Props } from "./Game";
 
 interface IProps {
   deck: Props["deck"];
 
-  setDeck: React.Dispatch<
-    React.SetStateAction<
-      {
-        id: string;
-        number: string;
-        suit: string;
-        isRed: boolean;
-        symbol: string;
-        symbolAlt: string;
-      }[]
-    >
-  >;
+  setDeck: React.Dispatch<React.SetStateAction<Props["deck"]>>;
   setPlayerHand: React.Dispatch<
     React.SetStateAction<
       {
@@ -28,21 +15,12 @@ interface IProps {
         isRed: boolean;
         symbol: string;
         symbolAlt: string;
+        ownedByPlayer?: boolean | undefined;
+        value: number;
       }[]
     >
   >;
-  setComputerHand: React.Dispatch<
-    React.SetStateAction<
-      {
-        id: string;
-        number: string;
-        suit: string;
-        isRed: boolean;
-        symbol: string;
-        symbolAlt: string;
-      }[]
-    >
-  >;
+  setComputerHand: React.Dispatch<React.SetStateAction<Props["deck"]>>;
   setIsGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -73,7 +51,60 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
       isRed: false,
     },
   ];
-  const numbers: string[] = ["A", "K", "Q", "J", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+  const numbers: { name: string; value: number }[] = [
+    {
+      name: "A",
+      value: 14,
+    },
+    {
+      name: "K",
+      value: 13,
+    },
+    {
+      name: "Q",
+      value: 12,
+    },
+    {
+      name: "J",
+      value: 11,
+    },
+    {
+      name: "2",
+      value: 2,
+    },
+    {
+      name: "3",
+      value: 3,
+    },
+    {
+      name: "4",
+      value: 4,
+    },
+    {
+      name: "5",
+      value: 5,
+    },
+    {
+      name: "6",
+      value: 6,
+    },
+    {
+      name: "7",
+      value: 7,
+    },
+    {
+      name: "8",
+      value: 8,
+    },
+    {
+      name: "9",
+      value: 9,
+    },
+    {
+      name: "10",
+      value: 10,
+    },
+  ];
 
   // Create a deck
   const handleClick = () => {
@@ -82,12 +113,14 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
     for (let i = 0; i < suits.length; i++) {
       for (let n = 0; n < numbers.length; n++) {
         let card = {
-          id: `${suits[i]}-${numbers[n]}`,
-          number: numbers[n],
+          id: `${suits[i].suit}-${numbers[n].name}`,
+          number: numbers[n].name,
           suit: suits[i].suit,
           isRed: suits[i].isRed,
           symbol: suits[i].symbol,
           symbolAlt: suits[i].symbolAlt,
+          ownedByPlayer: false,
+          value: numbers[n].value,
         };
         temporaryDeck.push(card);
       }
@@ -96,10 +129,14 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
     //shuffle and assign deck
     setDeck(shuffledDeck);
 
+    let playerCards = shuffledDeck.slice(0, 26);
+    playerCards.forEach((singleCard) => (singleCard.ownedByPlayer = true));
+    let computerCards = shuffledDeck.slice(26, 52);
+    computerCards.forEach((card) => (card.ownedByPlayer = false));
     // setPlayerHand
-    setPlayerHand(shuffledDeck.slice(0, 26));
+    setPlayerHand(playerCards);
     // setComputerHand
-    setComputerHand(shuffledDeck.slice(26, 52));
+    setComputerHand(computerCards);
     // start the game ui
     setIsGameStarted(true);
   };

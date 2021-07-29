@@ -8,6 +8,8 @@ interface IProps {
     isRed: boolean;
     symbol: string;
     symbolAlt: string;
+    ownedByPlayer?: boolean | null;
+    value: number;
   };
 }
 
