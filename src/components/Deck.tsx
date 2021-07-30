@@ -1,5 +1,5 @@
 import React from "react";
-import _, { shuffle } from "lodash";
+import _ from "lodash";
 import { IState as Props } from "./Game";
 
 interface IProps {
@@ -15,16 +15,17 @@ interface IProps {
         isRed: boolean;
         symbol: string;
         symbolAlt: string;
-        ownedByPlayer?: boolean | undefined;
+        ownedByPlayer?: boolean | null | undefined;
         value: number;
       }[]
     >
   >;
   setComputerHand: React.Dispatch<React.SetStateAction<Props["deck"]>>;
   setIsGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
+  setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComputerHand, setIsGameStarted }) => {
+export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComputerHand, setIsGameStarted, setGameOver }) => {
   const suits: { suit: string; symbol: string; symbolAlt: string; isRed: boolean }[] = [
     {
       suit: "heart",
@@ -108,6 +109,8 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
 
   // Create a deck
   const handleClick = () => {
+    setGameOver(false);
+
     setDeck([]);
     let temporaryDeck = [];
     for (let i = 0; i < suits.length; i++) {
