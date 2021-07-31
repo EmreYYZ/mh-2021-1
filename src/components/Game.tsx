@@ -43,6 +43,16 @@ export interface IState {
     ownedByPlayer?: boolean | null | undefined;
     value: number;
   }[];
+  table: {
+    id: string;
+    number: string;
+    suit: string;
+    isRed: boolean;
+    symbol: string;
+    symbolAlt: string;
+    ownedByPlayer?: boolean | null | undefined;
+    value: number;
+  }[];
 }
 
 export const Game = () => {
@@ -50,64 +60,64 @@ export const Game = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [playerHand, setPlayerHand] = useState<IState["playerHand"]>([]);
   const [computerHand, setComputerHand] = useState<IState["computerHand"]>([]);
+  // const [table, setTable] = useState<IState["table"]>([]);
+  const [isWar, setIsWar] = useState(false);
   // const [playerScore, setPlayerScore] = useState(26);
   // const [computerScore, setComputerScore] = useState(26);
   const [gameOver, setGameOver] = useState(false);
 
   const handleClick = () => {
+    // reset the table if the state is not war
+    // if (isWar === false) {
+    //   setTable([]);
+    // }
+    // setTable([]);
+    // setTable((table) => [...table, playerHand[0]]);
+    // setTable((table) => [...table, computerHand[0]]);
+
+    // remove the played card from the first spot of the player's hand
+
+    // remove computer's card from computer's dec.
+
     if (playerHand[0].value > computerHand[0].value) {
-      playerWin();
+      console.log(`Player wins!`);
+
+      let oldPlayerCard = playerHand[0];
+      let oldComputerCard = computerHand[0];
+
+      setPlayerHand(playerHand.filter((card) => card.id !== playerHand[0].id));
+      setComputerHand(computerHand.filter((card) => card.id !== computerHand[0].id));
+      setPlayerHand((playerHand) => [...playerHand, oldPlayerCard]);
+      setPlayerHand((playerHand) => [...playerHand, oldComputerCard]);
     } else if (playerHand[0].value < computerHand[0].value) {
-      computerWin();
+      console.log(`Computer wins!`);
+
+      let oldPlayerCard = playerHand[0];
+      let oldComputerCard = computerHand[0];
+
+      setPlayerHand(playerHand.filter((card) => card.id !== playerHand[0].id));
+      setComputerHand(computerHand.filter((card) => card.id !== computerHand[0].id));
+
+      setComputerHand((computerHand) => [...computerHand, oldPlayerCard]);
+      setComputerHand((computerHand) => [...computerHand, oldComputerCard]);
     } else if (playerHand[0].value === computerHand[0].value) {
-      console.log(`IT IS WAR ${playerHand.length} / ${computerHand.length}`);
-      war();
+      console.log(`It is a tie!`);
+
+      let oldPlayerCard = playerHand[0];
+      let oldComputerCard = computerHand[0];
+      setPlayerHand(playerHand.filter((card) => card.id !== playerHand[0].id));
+      setComputerHand(computerHand.filter((card) => card.id !== computerHand[0].id));
+      setPlayerHand((playerHand) => [...playerHand, oldPlayerCard]);
+      setComputerHand((computerHand) => [...computerHand, oldComputerCard]);
     }
   };
 
-  const playerWin = () => {
-    console.log(playerHand[0].id);
-
-    let inHand = playerHand[0];
-
-    // remove the played card from the first spot
-    const newPlayerHand = playerHand.filter((card) => card.id !== playerHand[0].id);
-    setPlayerHand(newPlayerHand);
-
-    // add the computer's card to player's deck
-    setPlayerHand((playerHand) => [...playerHand, computerHand[0]]);
-
-    // add the played card to the end of the deck
-    setPlayerHand((playerHand) => [...playerHand, inHand]);
-
-    // remove computer's card from computer's dec.
-    const newComputerHand = computerHand.filter((card) => card.id !== computerHand[0].id);
-    setComputerHand(newComputerHand);
-
-    console.log(`Player Wins :Hand coUNT ${playerHand.length}`);
-    // remove the cards on the table and add them to player's hand
-  };
-
-  const computerWin = () => {
-    console.log(computerHand[0].id);
-
-    let inHand = computerHand[0];
-
-    // remove the played card from the first spot
-    const newComputerHand = computerHand.filter((card) => card.id !== computerHand[0].id);
-    setComputerHand(newComputerHand);
-
-    // add the player's card to computer's deck
-    setComputerHand((computerHand) => [...computerHand, playerHand[0]]);
-
-    // add the played card to the end of the deck
-    setComputerHand((computerHand) => [...computerHand, inHand]);
-
-    // remove player's card from player's dec.
-    const newPlayerHand = playerHand.filter((card) => card.id !== playerHand[0].id);
-    setPlayerHand(newPlayerHand);
-
-    console.log(`Computer Wins :Hand coUNT ${computerHand.length}`);
+  const warCheck = () => {
+    if (isWar === false) {
+      console.log(`Not at war...`);
+    } else if (isWar === true) {
+      console.log(`At war!`);
+    }
   };
 
   const war = () => {
@@ -136,6 +146,7 @@ export const Game = () => {
         <div className="flex">
           <p>Your Score: {playerHand.length}</p>
           <p>Opponent's score: {computerHand.length}</p>
+          <p>Total: {playerHand.length + computerHand.length}</p>
           <button className="bg-red-500 px-4 py-2 rounded-lg my-2" onClick={handleClick}>
             Play a Card
           </button>
