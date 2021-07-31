@@ -61,27 +61,16 @@ export const Game = () => {
   const [playerHand, setPlayerHand] = useState<IState["playerHand"]>([]);
   const [computerHand, setComputerHand] = useState<IState["computerHand"]>([]);
   // const [table, setTable] = useState<IState["table"]>([]);
+  const [isFreshStart, setIsFreshStart] = useState(true);
   const [isWar, setIsWar] = useState(false);
-  // const [playerScore, setPlayerScore] = useState(26);
-  // const [computerScore, setComputerScore] = useState(26);
+  const [playerScore, setPlayerScore] = useState(0);
+  const [computerScore, setComputerScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
   const handleClick = () => {
-    // reset the table if the state is not war
-    // if (isWar === false) {
-    //   setTable([]);
-    // }
-    // setTable([]);
-    // setTable((table) => [...table, playerHand[0]]);
-    // setTable((table) => [...table, computerHand[0]]);
-
-    // remove the played card from the first spot of the player's hand
-
-    // remove computer's card from computer's dec.
-
     if (playerHand[0].value > computerHand[0].value) {
       console.log(`Player wins!`);
-
+      setPlayerScore(playerScore + 1);
       let oldPlayerCard = playerHand[0];
       let oldComputerCard = computerHand[0];
 
@@ -91,7 +80,7 @@ export const Game = () => {
       setPlayerHand((playerHand) => [...playerHand, oldComputerCard]);
     } else if (playerHand[0].value < computerHand[0].value) {
       console.log(`Computer wins!`);
-
+      setComputerScore(computerScore + 1);
       let oldPlayerCard = playerHand[0];
       let oldComputerCard = computerHand[0];
 
@@ -103,13 +92,6 @@ export const Game = () => {
     } else if (playerHand[0].value === computerHand[0].value) {
       console.log(`It is a tie!`);
       war();
-      // let oldPlayerCard = playerHand[0];
-      // let oldComputerCard = computerHand[0];
-      // setPlayerHand(playerHand.filter((card) => card.id !== playerHand[0].id));
-      // setComputerHand(computerHand.filter((card) => card.id !== computerHand[0].id));
-
-      // setPlayerHand((playerHand) => [...playerHand, oldPlayerCard]);
-      // setComputerHand((computerHand) => [...computerHand, oldComputerCard]);
     }
   };
 
@@ -124,15 +106,19 @@ export const Game = () => {
   const war = () => {
     console.log(`WARRRR!!!!`);
     // check if players have enough cards to WAR. If not, lose.
-    if (computerHand.length > 4 && playerHand.length > 4) {
+    if (computerHand.length > 5 && playerHand.length > 5) {
       console.log(`There are sufficient amount of cards in each players' hands to continue.`);
       // continue with the war.
       warRound();
     } else {
-      if (computerHand.length < 4) {
+      if (computerHand.length < 5) {
         console.log(`Computer loses the whole game.`);
-      } else if (playerHand.length < 4) {
+        setGameOver(true);
+        setIsGameStarted(false);
+      } else if (playerHand.length < 5) {
         console.log(`Player loses the whole game.`);
+        setGameOver(true);
+        setIsGameStarted(false);
       }
     }
     // because you haven't remove cards and present new ones from the line
@@ -148,29 +134,50 @@ export const Game = () => {
   const warRound = () => {
     if (playerHand[4].value > computerHand[4].value) {
       console.log(`Player wins the War`);
+      setPlayerScore(playerScore + 5);
+      let oldPlayerCards = [playerHand[0], playerHand[1], playerHand[2], playerHand[3], playerHand[4]];
+      let oldComputerCards = [computerHand[0], computerHand[1], computerHand[2], computerHand[3], computerHand[4]];
 
-      let oldPlayerCard = playerHand[0];
-      let oldComputerCard = computerHand[0];
+      let newPlayerHand = destroyer(playerHand, oldPlayerCards);
+      setPlayerHand(newPlayerHand);
+      let newComputerHand = destroyer(computerHand, oldComputerCards);
+      setComputerHand(newComputerHand);
 
-      for (let i = 0; i < 5; i++) {
-        setPlayerHand(playerHand.filter((card) => card.id !== playerHand[i].id));
-        setComputerHand(computerHand.filter((card) => card.id !== computerHand[i].id));
-      }
-      // setPlayerHand((playerHand) => [...playerHand, ...table]); THIS DOESN'T WORK I DON'T KNOW WHY.
-      // setThings((things) => [...things, ...moreThings]);
-      setPlayerHand((playerHand) => [...playerHand, oldPlayerCard]);
-      setPlayerHand((playerHand) => [...playerHand, oldComputerCard]);
+      setPlayerHand((playerHand) => [...playerHand, ...oldPlayerCards]);
+      setPlayerHand((playerHand) => [...playerHand, ...oldComputerCards]);
+      //
+      //
     } else if (playerHand[4].value < computerHand[4].value) {
       console.log(`Computer Wins the War`);
+      setComputerScore(computerScore + 5);
+      let oldPlayerCards = [playerHand[0], playerHand[1], playerHand[2], playerHand[3], playerHand[4]];
+      let oldComputerCards = [computerHand[0], computerHand[1], computerHand[2], computerHand[3], computerHand[4]];
+
+      let newPlayerHand = destroyer(playerHand, oldPlayerCards);
+      setPlayerHand(newPlayerHand);
+      let newComputerHand = destroyer(computerHand, oldComputerCards);
+      setComputerHand(newComputerHand);
+
+      setComputerHand((computerHand) => [...computerHand, ...oldPlayerCards]);
+      setComputerHand((computerHand) => [...computerHand, ...oldComputerCards]);
     }
   };
 
+  const destroyer = (arr: any, toRemove: any) => {
+    return arr.filter((item: any) => !toRemove.includes(item));
+  };
+
   useEffect(() => {
-    if (playerHand.length === 52 || playerHand.length === 0) {
+    if (playerScore === 52 || computerScore === 52) {
       setGameOver(true);
-      console.log(`game over`);
+      setIsGameStarted(false);
     }
   }, [playerHand]);
+
+  useEffect(() => {
+    setPlayerScore(0);
+    setComputerScore(0);
+  }, []);
 
   return (
     <div className="bg-gray-900 text-white p-10">
@@ -178,15 +185,38 @@ export const Game = () => {
 
       {isGameStarted === true && gameOver === false ? (
         <div className="flex">
-          <p>Your Score: {playerHand.length}</p>
-          <p>Opponent's score: {computerHand.length}</p>
-          <p>Total: {playerHand.length + computerHand.length}</p>
+          <div className="bg-gray-500 rounded-lg m-2 inline-block p-4 font-bold">
+            <p>Player</p>
+            <p className="text-xl">Score: {playerScore}</p>
+            <p>Card Count: {playerHand.length}</p>
+          </div>
+          <div className="bg-gray-500 rounded-lg m-2 inline-block p-4 font-bold">
+            <p>Opponent</p>
+            <p className="text-xl">Score: {computerScore}</p>
+            <p>Card Count: {computerHand.length}</p>
+            {/* <p>Total: {playerHand.length + computerHand.length}</p> */}
+          </div>
           <button className="bg-red-500 px-4 py-2 rounded-lg my-2" onClick={handleClick}>
             Play a Card
           </button>
         </div>
       ) : (
-        <Deck deck={deck} setDeck={setDeck} setPlayerHand={setPlayerHand} setIsGameStarted={setIsGameStarted} setComputerHand={setComputerHand} setGameOver={setGameOver} />
+        <div>
+          <p>GAME OVER!</p>
+          {playerScore === 52 && isFreshStart === false ? <p>YOU WIN!!!!!!</p> : null}
+          {computerScore === 52 && isFreshStart === false ? <p>Your opponent wins :(</p> : null}
+          <Deck
+            deck={deck}
+            setDeck={setDeck}
+            setPlayerHand={setPlayerHand}
+            setIsGameStarted={setIsGameStarted}
+            setComputerHand={setComputerHand}
+            setGameOver={setGameOver}
+            setPlayerScore={setPlayerScore}
+            setComputerScore={setComputerScore}
+            setIsFreshStart={setIsFreshStart}
+          />
+        </div>
       )}
       <Chat />
     </div>

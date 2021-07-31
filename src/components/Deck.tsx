@@ -23,9 +23,12 @@ interface IProps {
   setComputerHand: React.Dispatch<React.SetStateAction<Props["deck"]>>;
   setIsGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
   setGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+  setPlayerScore: React.Dispatch<React.SetStateAction<number>>;
+  setComputerScore: React.Dispatch<React.SetStateAction<number>>;
+  setIsFreshStart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComputerHand, setIsGameStarted, setGameOver }) => {
+export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComputerHand, setIsGameStarted, setGameOver, setPlayerScore, setComputerScore, setIsFreshStart }) => {
   const suits: { suit: string; symbol: string; symbolAlt: string; isRed: boolean }[] = [
     {
       suit: "heart",
@@ -110,6 +113,9 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
   // Create a deck
   const handleClick = () => {
     setGameOver(false);
+    setPlayerScore(0);
+    setComputerScore(0);
+    setIsFreshStart(false);
 
     setDeck([]);
     let temporaryDeck = [];
@@ -146,7 +152,6 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
 
   return (
     <div>
-      <p>a deck</p>
       <button onClick={handleClick} className="bg-gray-900 text-blue-400 px-4 py-2 rounded-lg">
         Start Game
       </button>
