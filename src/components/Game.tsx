@@ -102,13 +102,14 @@ export const Game = () => {
       setComputerHand((computerHand) => [...computerHand, oldComputerCard]);
     } else if (playerHand[0].value === computerHand[0].value) {
       console.log(`It is a tie!`);
+      war();
+      // let oldPlayerCard = playerHand[0];
+      // let oldComputerCard = computerHand[0];
+      // setPlayerHand(playerHand.filter((card) => card.id !== playerHand[0].id));
+      // setComputerHand(computerHand.filter((card) => card.id !== computerHand[0].id));
 
-      let oldPlayerCard = playerHand[0];
-      let oldComputerCard = computerHand[0];
-      setPlayerHand(playerHand.filter((card) => card.id !== playerHand[0].id));
-      setComputerHand(computerHand.filter((card) => card.id !== computerHand[0].id));
-      setPlayerHand((playerHand) => [...playerHand, oldPlayerCard]);
-      setComputerHand((computerHand) => [...computerHand, oldComputerCard]);
+      // setPlayerHand((playerHand) => [...playerHand, oldPlayerCard]);
+      // setComputerHand((computerHand) => [...computerHand, oldComputerCard]);
     }
   };
 
@@ -122,6 +123,18 @@ export const Game = () => {
 
   const war = () => {
     console.log(`WARRRR!!!!`);
+    // check if players have enough cards to WAR. If not, lose.
+    if (computerHand.length > 4 && playerHand.length > 4) {
+      console.log(`There are sufficient amount of cards in each players' hands to continue.`);
+      // continue with the war.
+      warRound();
+    } else {
+      if (computerHand.length < 4) {
+        console.log(`Computer loses the whole game.`);
+      } else if (playerHand.length < 4) {
+        console.log(`Player loses the whole game.`);
+      }
+    }
     // because you haven't remove cards and present new ones from the line
     // when the war starts, the app stucks. REMOVE THE CARDS FROM THE TABLE!
 
@@ -131,6 +144,27 @@ export const Game = () => {
 
     // if any of the players doesn't have enough cards (3 face down, 1 face up) to do a war, the one that doesn't have enough card loses. You should check this for every war, in the beginning of the function.
   };
+
+  const warRound = () => {
+    if (playerHand[4].value > computerHand[4].value) {
+      console.log(`Player wins the War`);
+
+      let oldPlayerCard = playerHand[0];
+      let oldComputerCard = computerHand[0];
+
+      for (let i = 0; i < 5; i++) {
+        setPlayerHand(playerHand.filter((card) => card.id !== playerHand[i].id));
+        setComputerHand(computerHand.filter((card) => card.id !== computerHand[i].id));
+      }
+      // setPlayerHand((playerHand) => [...playerHand, ...table]); THIS DOESN'T WORK I DON'T KNOW WHY.
+      // setThings((things) => [...things, ...moreThings]);
+      setPlayerHand((playerHand) => [...playerHand, oldPlayerCard]);
+      setPlayerHand((playerHand) => [...playerHand, oldComputerCard]);
+    } else if (playerHand[4].value < computerHand[4].value) {
+      console.log(`Computer Wins the War`);
+    }
+  };
+
   useEffect(() => {
     if (playerHand.length === 52 || playerHand.length === 0) {
       setGameOver(true);
