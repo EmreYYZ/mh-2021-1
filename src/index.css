@@ -3,3 +3,18 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gugi&display=swap");
+
+@layer components {
+  .landing-title {
+    @apply uppercase font-display text-4xl tracking-widest mt-4 mb-2;
+  }
+  .landing-p {
+    @apply mb-2 text-justify text-lg leading-relaxed;
+  }
+  .landing-section {
+    @apply my-20;
+  }
+  .landing-tech-icon {
+    @apply w-8 h-8 m-6 inline-block text-gray-700 hover:text-gray-400 cursor-pointer;
+  }
+}

@@ -8,9 +8,9 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div>
-      <p>layout</p>
+    <div className="w-5/6 m-auto max-w-screen-md">
       <Header />
+
       {children}
       <Footer />
     </div>
