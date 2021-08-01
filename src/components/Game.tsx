@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Card } from "./Card";
 import { Chat } from "./Chat/Chat";
 import { Deck } from "./Deck";
 
@@ -174,10 +175,10 @@ export const Game = () => {
     }
   }, [playerHand]);
 
-  useEffect(() => {
-    setPlayerScore(0);
-    setComputerScore(0);
-  }, []);
+  // useEffect(() => {
+  //   setPlayerScore(0);
+  //   setComputerScore(0);
+  // }, []);
 
   return (
     <div className="bg-gray-900 text-white p-10">
@@ -185,18 +186,21 @@ export const Game = () => {
 
       {isGameStarted === true && gameOver === false ? (
         <div className="flex">
-          <div className="bg-gray-500 rounded-lg m-2 inline-block p-4 font-bold">
-            <p>Player</p>
-            <p className="text-xl">Score: {playerScore}</p>
-            <p>Card Count: {playerHand.length}</p>
+          <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
+            <p className="font-display uppercase">Player</p>
+            <p className="text-xl font-body">Score: {playerScore}</p>
+            <p className="text-xs text-gray-500 font-body">Card Count: {playerHand.length}</p>
+            {!isWar ? <Card card={playerHand[0]} /> : <Card card={playerHand[4]} />}
           </div>
-          <div className="bg-gray-500 rounded-lg m-2 inline-block p-4 font-bold">
-            <p>Opponent</p>
-            <p className="text-xl">Score: {computerScore}</p>
-            <p>Card Count: {computerHand.length}</p>
+          <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
+            <p className="font-display uppercase">Opponent</p>
+            <p className="text-xl font-body">Score: {computerScore}</p>
+            <p className="text-xs text-gray-500 font-body">Card Count: {computerHand.length}</p>
+            {!isWar ? <Card card={computerHand[0]} /> : <Card card={computerHand[4]} />}
+
             {/* <p>Total: {playerHand.length + computerHand.length}</p> */}
           </div>
-          <button className="bg-red-500 px-4 py-2 rounded-lg my-2" onClick={handleClick}>
+          <button className="bg-scarlet-400 px-4 py-2 rounded-lg my-2" onClick={handleClick}>
             Play a Card
           </button>
         </div>
