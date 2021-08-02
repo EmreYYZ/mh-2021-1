@@ -22,6 +22,10 @@ export const LandingPage = () => {
       name: "Adobe Photoshop",
       url: "https://www.adobe.com/ca/products/photoshop.html",
     },
+    {
+      name: "Firebase",
+      url: "https://firebase.google.com/",
+    },
   ];
 
   const libraries = [

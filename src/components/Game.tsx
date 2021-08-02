@@ -189,9 +189,13 @@ export const Game = () => {
                 <p className="text-sm text-gray-500 font-body">Card Count: {playerHand.length}</p>
                 {!isWar ? <Card card={playerHand[0]} /> : <Card card={playerHand[4]} />}
               </div>
-              <button className="animate bg-scarlet-800 hover:bg-scarlet-600 font-body font-bold text-2xl px-4 py-2 rounded-lg my-2" onClick={handleClick}>
-                Play a Card
-              </button>
+              <div className="hidden sm:flex uppercase font-display mx-4 text-center text-3xl ">
+                <div className="block align-middle py-10">
+                  <p className="my-4">Canada</p>
+                  <p className="my-4">vs</p>
+                  <p className="my-4">Japan</p>
+                </div>
+              </div>
               <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
                 <p className="text-sm font-display uppercase tracking-wider">Opponent</p>
                 <p className="text-2xl font-body">Score: {computerScore}</p>
@@ -200,6 +204,11 @@ export const Game = () => {
 
                 {/* <p>Total: {playerHand.length + computerHand.length}</p> */}
               </div>
+            </div>
+            <div className="text-center">
+              <button className="animate bg-scarlet-800 hover:bg-scarlet-600 font-body font-bold text-2xl px-4 py-2 rounded-lg my-2" onClick={handleClick}>
+                Play a Card
+              </button>
             </div>
           </div>
         ) : (

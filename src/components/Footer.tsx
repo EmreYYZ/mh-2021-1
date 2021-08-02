@@ -1,5 +1,5 @@
 import React from "react";
-import { SiTailwindcss, SiReact, SiTypescript, SiAdobephotoshop } from "react-icons/si";
+import { SiTailwindcss, SiReact, SiTypescript, SiAdobephotoshop, SiFirebase } from "react-icons/si";
 
 export const Footer = () => {
   return (
@@ -29,6 +29,9 @@ export const Footer = () => {
         </a>
         <a href="https://www.adobe.com/ca/products/photoshop.html" target="_blank" rel="noopener noreferrer">
           <SiAdobephotoshop className="landing-tech-icon animation" />
+        </a>
+        <a href="https://firebase.google.com" target="_blank" rel="noopener noreferrer">
+          <SiFirebase className="landing-tech-icon animation" />
         </a>
       </div>
     </div>
