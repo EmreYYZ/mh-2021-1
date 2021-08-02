@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.gray,
+        emerald: colors.emerald,
         scarlet: {
           50: "#fff4f2",
           100: "#ffeae6",

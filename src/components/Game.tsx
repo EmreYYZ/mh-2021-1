@@ -108,7 +108,7 @@ export const Game = () => {
     console.log(`WARRRR!!!!`);
     // check if players have enough cards to WAR. If not, lose.
     if (computerHand.length > 5 && playerHand.length > 5) {
-      console.log(`There are sufficient amount of cards in each players' hands to continue.`);
+      // console.log(`There are sufficient amount of cards in each players' hands to continue.`);
       // continue with the war.
       warRound();
     } else {
@@ -122,14 +122,6 @@ export const Game = () => {
         setIsGameStarted(false);
       }
     }
-    // because you haven't remove cards and present new ones from the line
-    // when the war starts, the app stucks. REMOVE THE CARDS FROM THE TABLE!
-
-    // the cards you already have on the table stays there, each player puts 3 cards face down.
-    // on top of the face down cards, each player puts down 1 card face up. The higher value card's owner--
-    // takes all the cards on the table. If the face up cards are equal again, then the process repeats, put another 3 face-down 1 face-up card, and so on.
-
-    // if any of the players doesn't have enough cards (3 face down, 1 face up) to do a war, the one that doesn't have enough card loses. You should check this for every war, in the beginning of the function.
   };
 
   const warRound = () => {
@@ -173,6 +165,10 @@ export const Game = () => {
       setGameOver(true);
       setIsGameStarted(false);
     }
+    if (playerHand.length === 0 || computerScore === 0) {
+      // setGameOver(true);
+      // setIsGameStarted(false);
+    }
   }, [playerHand]);
 
   // useEffect(() => {
@@ -181,49 +177,51 @@ export const Game = () => {
   // }, []);
 
   return (
-    <div className="bg-gray-900 text-white p-10">
-      <h2 className="font-body">Justin Trudeau 3000 vs J0e BID3n</h2>
+    <div className="bg-gray-900 w-5/6 m-auto text-white p-10">
+      <h2 className="font-body block">Justin Trudeau 3000 vs J0e BID3n</h2>
+      <div className="m-auto">
+        {isGameStarted === true && gameOver === false ? (
+          <div>
+            <div className="flex justify-between">
+              <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
+                <p className="text-sm font-display uppercase tracking-wider">Player</p>
+                <p className="text-2xl font-body">Score: {playerScore}</p>
+                <p className="text-sm text-gray-500 font-body">Card Count: {playerHand.length}</p>
+                {!isWar ? <Card card={playerHand[0]} /> : <Card card={playerHand[4]} />}
+              </div>
+              <button className="bg-scarlet-800 hover:bg-scarlet-600 font-body font-bold text-2xl px-4 py-2 rounded-lg my-2" onClick={handleClick}>
+                Play a Card
+              </button>
+              <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
+                <p className="text-sm font-display uppercase tracking-wider">Opponent</p>
+                <p className="text-2xl font-body">Score: {computerScore}</p>
+                <p className="text-sm text-gray-500 font-body">Card Count: {computerHand.length}</p>
+                {!isWar ? <Card card={computerHand[0]} /> : <Card card={computerHand[4]} />}
 
-      {isGameStarted === true && gameOver === false ? (
-        <div>
-          <div className="flex">
-            <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
-              <p className="text-sm font-display uppercase tracking-wider">Player</p>
-              <p className="text-2xl font-body">Score: {playerScore}</p>
-              <p className="text-sm text-gray-500 font-body">Card Count: {playerHand.length}</p>
-              {!isWar ? <Card card={playerHand[0]} /> : <Card card={playerHand[4]} />}
-            </div>
-            <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
-              <p className="text-sm font-display uppercase tracking-wider">Opponent</p>
-              <p className="text-2xl font-body">Score: {computerScore}</p>
-              <p className="text-sm text-gray-500 font-body">Card Count: {computerHand.length}</p>
-              {!isWar ? <Card card={computerHand[0]} /> : <Card card={computerHand[4]} />}
-
-              {/* <p>Total: {playerHand.length + computerHand.length}</p> */}
+                {/* <p>Total: {playerHand.length + computerHand.length}</p> */}
+              </div>
             </div>
           </div>
-          <button className="bg-scarlet-400 hover:bg-scarlet-500 font-body font-bold text-2xl px-4 py-2 rounded-lg my-2" onClick={handleClick}>
-            Play a Card
-          </button>
-        </div>
-      ) : (
-        <div>
-          <p>GAME OVER!</p>
-          {playerScore === 52 && isFreshStart === false ? <p>YOU WIN!!!!!!</p> : null}
-          {computerScore === 52 && isFreshStart === false ? <p>Your opponent wins :(</p> : null}
-          <Deck
-            deck={deck}
-            setDeck={setDeck}
-            setPlayerHand={setPlayerHand}
-            setIsGameStarted={setIsGameStarted}
-            setComputerHand={setComputerHand}
-            setGameOver={setGameOver}
-            setPlayerScore={setPlayerScore}
-            setComputerScore={setComputerScore}
-            setIsFreshStart={setIsFreshStart}
-          />
-        </div>
-      )}
+        ) : (
+          <div className="flex-initial text-center">
+            <div className="my-6">
+              {playerScore === 52 && isFreshStart === false ? <p>YOU WIN!!!!!!</p> : null}
+              {computerScore === 52 && isFreshStart === false ? <p>Your opponent wins :(</p> : null}
+            </div>
+            <Deck
+              deck={deck}
+              setDeck={setDeck}
+              setPlayerHand={setPlayerHand}
+              setIsGameStarted={setIsGameStarted}
+              setComputerHand={setComputerHand}
+              setGameOver={setGameOver}
+              setPlayerScore={setPlayerScore}
+              setComputerScore={setComputerScore}
+              setIsFreshStart={setIsFreshStart}
+            />
+          </div>
+        )}
+      </div>
       <Chat />
     </div>
   );

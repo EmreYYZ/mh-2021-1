@@ -13,6 +13,7 @@ interface IInputProps {
       {
         timestamp: string;
         message: string;
+        username: string;
       }[]
     >
   >;
@@ -36,6 +37,7 @@ export const Input: React.FC<IInputProps> = ({ chat, setChat }) => {
       {
         timestamp: logTime(),
         message: message,
+        username: "jt8000",
       },
     ]);
     setMessage("");
@@ -44,11 +46,19 @@ export const Input: React.FC<IInputProps> = ({ chat, setChat }) => {
   return (
     <div className="mt-4">
       <form onSubmit={handleSubmit}>
-        <textarea name="" id="" value={message} cols={30} rows={2} className="text-gray-800 rounded-lg" onChange={handleChange} placeholder="Your message..."></textarea>
-
-        <button type="submit" className="px-4 py-2 rounded-lg text-white bg-green-400">
-          Send
-        </button>
+        <textarea
+          name=""
+          id=""
+          value={message}
+          className="text-gray-50 font-body w-full px-2 py-2 rounded-lg bg-gray-900 focus:bg-gray-800 border-gray-400 border-4"
+          onChange={handleChange}
+          placeholder="Send a message"
+        ></textarea>
+        <div className="text-right">
+          <button type="submit" className="px-4 py-2 mt-2 font-body font-bold rounded-lg text-white inline-block bg-malachite-600 hover:bg-malachite-700">
+            Send
+          </button>
+        </div>
       </form>
     </div>
   );

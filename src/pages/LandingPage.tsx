@@ -47,7 +47,7 @@ export const LandingPage = () => {
 
   const social = [
     {
-      name: "Portfolio (Has up to date links)",
+      name: "Portfolio",
       url: "https://emre.la",
     },
     {
@@ -74,9 +74,12 @@ export const LandingPage = () => {
 
   return (
     <div className="bg-gray-900 text-gray-200 font-body">
+      <section className="lg:hidden bg-scarlet-50 py-20 text-center">
+        <button className="px-4 py-2 text-xl bg-emerald-600 hover:text-white rounded-lg hover:bg-emerald-800 font-bold text-gray-50">Play the game</button>
+      </section>
       {/* First Section - About */}
-      <section className="landing-section grid md:flex">
-        <div className="md:w-2/4 w-full">
+      <section className="landing-section flex" id="what-is">
+        <div className="landing-text-block bg-emerald-800">
           <h2 className="landing-title">What is WarG8?</h2>
           <div className="font-body">
             <p className="landing-p">
@@ -86,18 +89,15 @@ export const LandingPage = () => {
             <p className="landing-p">This website let's you relive the war by following J.T 8000's footsteps during the war. Conquer the rest of the G8 countries and win the war!</p>
           </div>
         </div>
-        <div className="w-full md:w-2/4 p-10">
+        <div className="w-full hidden lg:block md:w-2/4 p-10">
           <div className="w-5/6 sm:w-2/4 md:w-5/6 m-auto">
             <img className="object-contain" src="/Trudeau8000.png" alt="" />
           </div>
         </div>
       </section>
       {/* Second Section - How To Play */}
-      <section className="landing-section">
-        <div>
-          <p>hello</p>
-        </div>
-        <div>
+      <section className="landing-section" id="how-to">
+        <div className="landing-text-block">
           <h2 className="landing-title">How to play?</h2>
           <p className="landing-p">
             <span className="font-display uppercase">WARG8</span> is a modified version of the card game <span className="font-display uppercase">WAR</span>.
@@ -111,7 +111,7 @@ export const LandingPage = () => {
         </div>
       </section>
       {/* Third Section - Rules */}
-      <section className="landing-section">
+      <section className="landing-section" id="rules">
         <div>
           <h2 className="landing-title">Rules</h2>
           <p>The rules of the game are pretty simple.</p>
@@ -128,49 +128,53 @@ export const LandingPage = () => {
         </div>
       </section>
       {/* About me */}
-      <section className="landing-section">
-        <h2 className="landing-title">About me</h2>
-        <p className="landing-p">
-          My name is Emre, (Pronounced like "Em-rae") I'm a product designer with 2 years of experience turned into a front-end developer. I was born in the capital city of{" "}
-          <span className="font-bold"> Turkey </span>, called <span className="font-bold"> Ankara </span>. However, I've been living in
-          <span className="font-bold"> Toronto, ON Canada </span>
-          for the last 5 years. In fact I just passed my citizenship test!
-        </p>
-        <p className="landing-p">I love tech. All of my hobbies revolve around tech and the biggest one is digital archiving. (Yes I'm a data hoarder.)</p>
-        <div>
-          {social.map((link) => (
-            <div className="inline-block landing-p" key={uuidv4()}>
-              <a className=" font-bold mr-4 hover:text-gray-50 inline-block" href={link.url} target="_blank" rel="noreferrer">
-                {link.name}
-              </a>
-            </div>
-          ))}
+      <section className="landing-section" id="about-me">
+        <div className="landing-text-block">
+          <h2 className="landing-title">About me</h2>
+          <p className="landing-p">
+            My name is Emre, (Pronounced like "Em-rae") I'm a product designer with 2 years of experience turned into a front-end developer. I was born in the capital city of{" "}
+            <span className="font-bold"> Turkey</span>, called <span className="font-bold"> Ankara</span>. However, I've been living in
+            <span className="font-bold"> Toronto, ON Canada </span>
+            for the last 5 years. In fact I just passed my citizenship test!
+          </p>
+          <p className="landing-p">I love tech. All of my hobbies revolve around tech and the biggest one is contributing to digital archiving efforts.</p>
+          <div>
+            {social.map((link) => (
+              <div className="inline-block landing-p bg-gray-200 rounded-lg text-gray-700 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+                <a className=" font-bold mr-4 hover:text-gray-900 inline-block" href={link.url} target="_blank" rel="noreferrer">
+                  {link.name}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       {/* Technicals */}
-      <section className="landing-section">
-        <h2 className="landing-title">Tech</h2>
-        <p className="landing-p">This card game is built with:</p>
-        <div>
-          {tools.map((tool) => (
-            <div className="inline-block landing-p" key={uuidv4()}>
-              <a className=" font-bold mr-4 hover:text-gray-50 inline-block" href={tool.url} target="_blank" rel="noreferrer">
-                {tool.name}
-              </a>
-            </div>
-          ))}
-        </div>
-        {/* logos */}
+      <section className="landing-section" id="tech">
+        <div className="landing-text-block">
+          <h2 className="landing-title">Tech</h2>
+          <p className="landing-p">This card game is built with:</p>
+          <div>
+            {tools.map((tool) => (
+              <div className="inline-block landing-p bg-gray-200 rounded-lg text-gray-700 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+                <a className="font-bold mr-4 hover:text-gray-900 inline-block" href={tool.url} target="_blank" rel="noreferrer">
+                  {tool.name}
+                </a>
+              </div>
+            ))}
+          </div>
+          {/* logos */}
 
-        <p className="landing-p mt-4">I also used additional third-party libraries including:</p>
-        <div>
-          {libraries.map((library) => (
-            <div className="inline-block landing-p" key={uuidv4()}>
-              <a className=" font-bold mr-4 hover:text-gray-50 inline-block" href={library.url} target="_blank" rel="noreferrer">
-                {library.name}
-              </a>
-            </div>
-          ))}
+          <p className="landing-p mt-4">I also used additional third-party libraries including:</p>
+          <div>
+            {libraries.map((library) => (
+              <div className="inline-block landing-p bg-gray-200 rounded-lg text-gray-700 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+                <a className=" font-bold mr-4 hover:text-gray-900 inline-block" href={library.url} target="_blank" rel="noreferrer">
+                  {library.name}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       {/* Short Description, screenshot, play button */}

@@ -5,10 +5,12 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen min-w-full bg-gray-900 App">
+      <div className="bg-gray-900 App">
         <Layout>
-          <LandingPage />
-          <Game />
+          <Switch>
+            <Route path="/" exact component={LandingPage} />
+            <Route path="/play" exact component={Game} />
+          </Switch>
         </Layout>
       </div>
     </Router>
