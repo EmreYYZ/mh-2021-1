@@ -2,6 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { SiTailwindcss, SiReact, SiTypescript, SiAdobephotoshop } from "react-icons/si";
 import { IoMdOpen } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export const LandingPage = () => {
   const tools = [
@@ -76,7 +77,9 @@ export const LandingPage = () => {
   return (
     <div className="bg-gray-900 text-gray-200 font-body">
       <section className="lg:hidden  pt-10 pb-20 text-center">
-        <button className="px-4 py-2 text-xl bg-emerald-600 hover:text-white rounded-lg hover:bg-emerald-800 font-bold text-gray-50">Play the game</button>
+        <Link to="/play">
+          <button className="px-4 animation py-2 text-xl bg-emerald-600 hover:text-white rounded-lg hover:bg-emerald-800 font-bold text-gray-50">Play the game</button>
+        </Link>
       </section>
       {/* First Section - About */}
       <section className="landing-section" id="what-is">
@@ -144,8 +147,8 @@ export const LandingPage = () => {
           <p className="landing-p">I love tech. All of my hobbies revolve around tech and the biggest one is contributing to digital archiving efforts.</p>
           <div>
             {social.map((link) => (
-              <div className="inline-block landing-p bg-gray-200 rounded-lg text-gray-700 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
-                <a className=" font-bold mr-4 hover:text-gray-900 inline-block" href={link.url} target="_blank" rel="noreferrer">
+              <div className="animation inline-block landing-p bg-gray-100 rounded-lg text-gray-900 hover:bg-gray-300 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+                <a className=" font-bold mr-4 inline-block" href={link.url} target="_blank" rel="noreferrer">
                   {link.name} <IoMdOpen className="inline-block" />
                 </a>
               </div>
@@ -162,7 +165,7 @@ export const LandingPage = () => {
           </p>
           <div>
             {tools.map((tool) => (
-              <div className="inline-block landing-p rounded-lg bg-gray-700 hover:bg-gray-900  text-gray-50 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+              <div className="animation inline-block landing-p rounded-lg bg-gray-700 hover:bg-gray-900  text-gray-50 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
                 <a className="font-bold mr-4 hover:text-gray-50 inline-block" href={tool.url} target="_blank" rel="noreferrer">
                   {tool.name} <IoMdOpen className="inline-block" />
                 </a>
@@ -174,7 +177,7 @@ export const LandingPage = () => {
           <p className="landing-p mt-4">I also used additional third-party libraries including:</p>
           <div>
             {libraries.map((library) => (
-              <div className="inline-block landing-p bg-gray-700 hover:bg-gray-900 rounded-lg text-gray-50 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+              <div className="animation inline-block landing-p bg-gray-700 hover:bg-gray-900 rounded-lg text-gray-50 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
                 <a className=" font-bold mr-4 hover:text-gray-50 inline-block" href={library.url} target="_blank" rel="noreferrer">
                   {library.name} <IoMdOpen className="inline-block" />
                 </a>

@@ -189,7 +189,7 @@ export const Game = () => {
                 <p className="text-sm text-gray-500 font-body">Card Count: {playerHand.length}</p>
                 {!isWar ? <Card card={playerHand[0]} /> : <Card card={playerHand[4]} />}
               </div>
-              <button className="bg-scarlet-800 hover:bg-scarlet-600 font-body font-bold text-2xl px-4 py-2 rounded-lg my-2" onClick={handleClick}>
+              <button className="animate bg-scarlet-800 hover:bg-scarlet-600 font-body font-bold text-2xl px-4 py-2 rounded-lg my-2" onClick={handleClick}>
                 Play a Card
               </button>
               <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
@@ -205,7 +205,7 @@ export const Game = () => {
         ) : (
           <div className="flex-initial text-center">
             <div className="my-6">
-              {playerScore === 52 && isFreshStart === false ? <p className="font-display">YOU WIN!!!!!!</p> : null}
+              {playerScore === 52 && isFreshStart === false ? <p className="font-display uppercase text-gray-300 text-3xl">You win!!!!!!</p> : null}
               {computerScore === 52 && isFreshStart === false ? <p className="font-display uppercase text-gray-300 text-3xl">Your opponent wins</p> : null}
             </div>
             <Deck
