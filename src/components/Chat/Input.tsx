@@ -55,7 +55,7 @@ export const Input: React.FC<IInputProps> = ({ chat, setChat }) => {
           placeholder="Send a message"
         ></textarea>
         <div className="text-right">
-          <button type="submit" className="px-4 py-2 mt-2 font-body font-bold rounded-lg text-white inline-block bg-malachite-600 hover:bg-malachite-700">
+          <button type="submit" className="px-4 py-2 mt-2 font-body font-bold rounded-lg text-white inline-block bg-green-600 hover:bg-green-700">
             Send
           </button>
         </div>

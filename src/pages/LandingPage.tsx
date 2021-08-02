@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { SiTailwindcss, SiReact, SiTypescript, SiAdobephotoshop } from "react-icons/si";
+import { IoMdOpen } from "react-icons/io";
 
 export const LandingPage = () => {
   const tools = [
@@ -74,12 +75,12 @@ export const LandingPage = () => {
 
   return (
     <div className="bg-gray-900 text-gray-200 font-body">
-      <section className="lg:hidden bg-scarlet-50 py-20 text-center">
+      <section className="lg:hidden  pt-10 pb-20 text-center">
         <button className="px-4 py-2 text-xl bg-emerald-600 hover:text-white rounded-lg hover:bg-emerald-800 font-bold text-gray-50">Play the game</button>
       </section>
       {/* First Section - About */}
-      <section className="landing-section flex" id="what-is">
-        <div className="landing-text-block bg-emerald-800">
+      <section className="landing-section" id="what-is">
+        <div className="landing-text-block bg-gray-50 text-gray-900">
           <h2 className="landing-title">What is WarG8?</h2>
           <div className="font-body">
             <p className="landing-p">
@@ -89,7 +90,7 @@ export const LandingPage = () => {
             <p className="landing-p">This website let's you relive the war by following J.T 8000's footsteps during the war. Conquer the rest of the G8 countries and win the war!</p>
           </div>
         </div>
-        <div className="w-full hidden lg:block md:w-2/4 p-10">
+        <div className="landing-irrelevant">
           <div className="w-5/6 sm:w-2/4 md:w-5/6 m-auto">
             <img className="object-contain" src="/Trudeau8000.png" alt="" />
           </div>
@@ -97,7 +98,8 @@ export const LandingPage = () => {
       </section>
       {/* Second Section - How To Play */}
       <section className="landing-section" id="how-to">
-        <div className="landing-text-block">
+        <div className="landing-irrelevant"></div>
+        <div className="landing-text-block text-gray-50">
           <h2 className="landing-title">How to play?</h2>
           <p className="landing-p">
             <span className="font-display uppercase">WARG8</span> is a modified version of the card game <span className="font-display uppercase">WAR</span>.
@@ -112,10 +114,10 @@ export const LandingPage = () => {
       </section>
       {/* Third Section - Rules */}
       <section className="landing-section" id="rules">
-        <div>
+        <div className="landing-text-block bg-gray-50 text-gray-900">
           <h2 className="landing-title">Rules</h2>
-          <p>The rules of the game are pretty simple.</p>
-          <ul>
+          <p className="landing-p">The rules of the game are pretty simple:</p>
+          <ul className="list-disc list-inside  landing-p">
             <li>
               Every <span className="font-display uppercase">regular</span> win earns you 1 point.
             </li>
@@ -126,9 +128,11 @@ export const LandingPage = () => {
             <li>The player who runs out of cards or has less points loses.</li>
           </ul>
         </div>
+        <div className="landing-irrelevant"></div>
       </section>
       {/* About me */}
       <section className="landing-section" id="about-me">
+        <div className="landing-irrelevant"></div>
         <div className="landing-text-block">
           <h2 className="landing-title">About me</h2>
           <p className="landing-p">
@@ -142,7 +146,7 @@ export const LandingPage = () => {
             {social.map((link) => (
               <div className="inline-block landing-p bg-gray-200 rounded-lg text-gray-700 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
                 <a className=" font-bold mr-4 hover:text-gray-900 inline-block" href={link.url} target="_blank" rel="noreferrer">
-                  {link.name}
+                  {link.name} <IoMdOpen className="inline-block" />
                 </a>
               </div>
             ))}
@@ -151,14 +155,16 @@ export const LandingPage = () => {
       </section>
       {/* Technicals */}
       <section className="landing-section" id="tech">
-        <div className="landing-text-block">
+        <div className="landing-text-block bg-gray-50 text-gray-900">
           <h2 className="landing-title">Tech</h2>
-          <p className="landing-p">This card game is built with:</p>
+          <p className="landing-p">
+            <span className="font-display uppercase">WarG8</span> is built with:
+          </p>
           <div>
             {tools.map((tool) => (
-              <div className="inline-block landing-p bg-gray-200 rounded-lg text-gray-700 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
-                <a className="font-bold mr-4 hover:text-gray-900 inline-block" href={tool.url} target="_blank" rel="noreferrer">
-                  {tool.name}
+              <div className="inline-block landing-p rounded-lg bg-gray-700 hover:bg-gray-900  text-gray-50 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+                <a className="font-bold mr-4 hover:text-gray-50 inline-block" href={tool.url} target="_blank" rel="noreferrer">
+                  {tool.name} <IoMdOpen className="inline-block" />
                 </a>
               </div>
             ))}
@@ -168,9 +174,9 @@ export const LandingPage = () => {
           <p className="landing-p mt-4">I also used additional third-party libraries including:</p>
           <div>
             {libraries.map((library) => (
-              <div className="inline-block landing-p bg-gray-200 rounded-lg text-gray-700 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
-                <a className=" font-bold mr-4 hover:text-gray-900 inline-block" href={library.url} target="_blank" rel="noreferrer">
-                  {library.name}
+              <div className="inline-block landing-p bg-gray-700 hover:bg-gray-900 rounded-lg text-gray-50 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+                <a className=" font-bold mr-4 hover:text-gray-50 inline-block" href={library.url} target="_blank" rel="noreferrer">
+                  {library.name} <IoMdOpen className="inline-block" />
                 </a>
               </div>
             ))}

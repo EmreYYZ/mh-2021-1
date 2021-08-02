@@ -178,7 +178,7 @@ export const Game = () => {
 
   return (
     <div className="bg-gray-900 w-5/6 m-auto text-white p-10">
-      <h2 className="font-body block">Justin Trudeau 3000 vs J0e BID3n</h2>
+      {/* <h2 className="font-body block">Justin Trudeau 3000 vs J0e BID3n</h2> */}
       <div className="m-auto">
         {isGameStarted === true && gameOver === false ? (
           <div>
@@ -205,8 +205,8 @@ export const Game = () => {
         ) : (
           <div className="flex-initial text-center">
             <div className="my-6">
-              {playerScore === 52 && isFreshStart === false ? <p>YOU WIN!!!!!!</p> : null}
-              {computerScore === 52 && isFreshStart === false ? <p>Your opponent wins :(</p> : null}
+              {playerScore === 52 && isFreshStart === false ? <p className="font-display">YOU WIN!!!!!!</p> : null}
+              {computerScore === 52 && isFreshStart === false ? <p className="font-display uppercase text-gray-300 text-3xl">Your opponent wins</p> : null}
             </div>
             <Deck
               deck={deck}

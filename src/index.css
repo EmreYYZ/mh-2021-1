@@ -12,12 +12,15 @@
     @apply mb-2 text-justify text-lg leading-relaxed;
   }
   .landing-section {
-    @apply flex-initial max-w-screen-lg lg:m-auto;
+    @apply flex-initial max-w-screen-lg lg:m-auto flex;
   }
   .landing-tech-icon {
     @apply w-8 h-8 m-6 mt-4 inline-block text-gray-700 hover:text-gray-400 cursor-pointer;
   }
   .landing-text-block {
-    @apply p-10 w-full lg:w-2/4;
+    @apply p-10 w-full lg:w-2/4 lg:rounded-lg;
+  }
+  .landing-irrelevant {
+    @apply w-full hidden lg:block md:w-2/4 p-10;
   }
 }
