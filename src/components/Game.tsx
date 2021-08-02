@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { isTemplateSpan } from "typescript";
 import { Card } from "./Card";
 import { Chat } from "./Chat/Chat";
 import { Deck } from "./Deck";
@@ -67,6 +68,7 @@ export const Game = () => {
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [enemyCountry, setEnemyCountry] = useState("");
 
   const handleClick = () => {
     if (playerHand[0].value > computerHand[0].value) {
@@ -193,7 +195,7 @@ export const Game = () => {
                 <div className="block align-middle py-10">
                   <p className="my-4">Canada</p>
                   <p className="my-4">vs</p>
-                  <p className="my-4">Japan</p>
+                  <p className="my-4">{enemyCountry}</p>
                 </div>
               </div>
               <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
@@ -227,6 +229,7 @@ export const Game = () => {
               setPlayerScore={setPlayerScore}
               setComputerScore={setComputerScore}
               setIsFreshStart={setIsFreshStart}
+              setEnemyCountry={setEnemyCountry}
             />
           </div>
         )}

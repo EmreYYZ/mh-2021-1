@@ -26,9 +26,10 @@ interface IProps {
   setPlayerScore: React.Dispatch<React.SetStateAction<number>>;
   setComputerScore: React.Dispatch<React.SetStateAction<number>>;
   setIsFreshStart: React.Dispatch<React.SetStateAction<boolean>>;
+  setEnemyCountry: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComputerHand, setIsGameStarted, setGameOver, setPlayerScore, setComputerScore, setIsFreshStart }) => {
+export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComputerHand, setIsGameStarted, setGameOver, setPlayerScore, setComputerScore, setIsFreshStart, setEnemyCountry }) => {
   const suits: { suit: string; symbol: string; symbolAlt: string; isRed: boolean }[] = [
     {
       suit: "heart",
@@ -109,13 +110,15 @@ export const Deck: React.FC<IProps> = ({ deck, setDeck, setPlayerHand, setComput
       value: 10,
     },
   ];
-
+  // List of G8 countries
+  const countries = ["Russia", "Japan", "USA", "UK", "Germany", "Italy", "France"];
   // Create a deck
   const handleClick = () => {
     setGameOver(false);
     setPlayerScore(0);
     setComputerScore(0);
     setIsFreshStart(false);
+    setEnemyCountry(countries[Math.floor(Math.random() * countries.length)]);
 
     setDeck([]);
     let temporaryDeck = [];
