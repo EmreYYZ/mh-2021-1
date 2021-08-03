@@ -179,7 +179,7 @@ export const Game = () => {
   // }, []);
 
   return (
-    <div className="bg-gray-900 w-6/6 m-auto text-white p-10">
+    <div className="bg-gray-900 w-6/6 md:w-4/6 lg:w-3/6 m-auto text-white p-10">
       {/* <h2 className="font-body block">Justin Trudeau 3000 vs J0e BID3n</h2> */}
       <div className="m-auto">
         {isGameStarted === true && gameOver === false ? (
