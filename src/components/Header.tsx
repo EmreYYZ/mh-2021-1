@@ -33,7 +33,7 @@ export const Header = () => {
       {/* Navigation links */}
       <nav className=" md:text-right mx-10 text-center  font-body text-gray-300 font-bold ">
         {navigation.map((link) => (
-          <div className="animation inline-block bg-gray-700 py-1 px-2 rounded-lg hover:bg-gray-800 mr-2 md:mr-4" key={uuidv4()}>
+          <div className="animation inline-block mb-2 mt-2 sm:mt-0 sm:mb-0 bg-gray-700 py-1 px-2 rounded-lg hover:bg-gray-800 mr-2 md:mr-4" key={uuidv4()}>
             <a href={link.url}>{link.name}</a>
           </div>
         ))}

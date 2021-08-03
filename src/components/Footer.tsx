@@ -27,11 +27,11 @@ export const Footer = () => {
         <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">
           <SiTailwindcss className="landing-tech-icon animation" />
         </a>
-        <a href="https://www.adobe.com/ca/products/photoshop.html" target="_blank" rel="noopener noreferrer">
-          <SiAdobephotoshop className="landing-tech-icon animation" />
-        </a>
         <a href="https://firebase.google.com" target="_blank" rel="noopener noreferrer">
           <SiFirebase className="landing-tech-icon animation" />
+        </a>
+        <a href="https://www.adobe.com/ca/products/photoshop.html" target="_blank" rel="noopener noreferrer">
+          <SiAdobephotoshop className="landing-tech-icon animation" />
         </a>
       </div>
     </div>
