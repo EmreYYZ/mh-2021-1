@@ -23,7 +23,7 @@ body {
     @apply p-10 w-full lg:w-2/4 lg:rounded-lg;
   }
   .landing-irrelevant {
-    @apply w-full hidden lg:block md:w-2/4 p-10;
+    @apply w-full hidden lg:block md:w-2/4;
   }
 
   .animation {

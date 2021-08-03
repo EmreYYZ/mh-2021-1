@@ -3,7 +3,7 @@ import { SiTailwindcss, SiReact, SiTypescript, SiAdobephotoshop, SiFirebase } fr
 
 export const Footer = () => {
   return (
-    <div className="bg-gray-900 py-10 text-center">
+    <div className="bg-gray-900 py-10 mt-10 text-center">
       <p className="text-gray-500 text-xl font-display uppercase text-center">
         Made by{" "}
         <a className="hover:text-gray-300 animation text-gray-400" href="https://emre.la" target="_blank" rel="noreferrer">

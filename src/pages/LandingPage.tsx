@@ -102,8 +102,8 @@ export const LandingPage = () => {
           </div>
         </div>
         <div className="landing-irrelevant">
-          <div className="w-5/6 sm:w-2/4 md:w-5/6 m-auto">
-            <img className="object-contain" src="/Trudeau8000.png" alt="" />
+          <div className="m-auto">
+            <img className="object-cover h-full rounded-lg w-full" src="/Trudeau-Header-Tr.png" alt="" />
           </div>
         </div>
       </section>
@@ -150,7 +150,7 @@ export const LandingPage = () => {
             My name is Emre, (Pronounced like "Em-rae") I'm a product designer with 2 years of experience turned front-end developer. I was born in the capital city of{" "}
             <span className="font-bold"> Turkey</span>, called <span className="font-bold"> Ankara</span>. However, I've been living in
             <span className="font-bold"> Toronto, ON Canada </span>
-            for the last 5 years. In fact I just passed my citizenship test!
+            for the last 5 years. In fact, I just passed my citizenship test!
           </p>
           <p className="landing-p">I love tech. All of my hobbies revolve around tech and the biggest one is contributing to digital archiving efforts.</p>
           <div>

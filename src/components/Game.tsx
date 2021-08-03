@@ -163,13 +163,13 @@ export const Game = () => {
   // }, []);
 
   return (
-    <div className="bg-gray-900 w-6/6 md:w-4/6 lg:w-3/6 m-auto text-white sm:p-10">
+    <div className="bg-gray-900 w-6/6 md:w-5/6 lg:w-3/6 m-auto text-white sm:p-10">
       {/* <h2 className="font-body block">Justin Trudeau 3000 vs J0e BID3n</h2> */}
       <div className="">
         {isGameStarted === true && gameOver === false ? (
           <div>
             <div className="flex justify-between">
-              <div className="bg-gray-800 rounded-lg mt-0 mb-6 mr-2 inline-block p-4 font-bold">
+              <div className="bg-gray-800 rounded-lg mt-0 mb-6 mr-2 sm:mr-0 inline-block p-4 font-bold">
                 <p className="text-sm font-display uppercase tracking-wider">Player</p>
                 <p className="text-2xl font-body">Score: {playerScore}</p>
                 <p className="text-sm text-gray-500 font-body">Card Count: {playerHand.length}</p>
