@@ -154,7 +154,7 @@ export const LandingPage = () => {
             <span className="font-bold"> Toronto, ON Canada </span>
             for the last 5 years. In fact, I just passed my citizenship test!
           </p>
-          <p className="landing-p">I love tech. All of my hobbies revolve around tech and the biggest one is contributing to digital archiving efforts.</p>
+          <p className="landing-p">I love tech. All of my hobbies revolve around tech and the biggest one is contributing to digital archiving efforts to preserve culture and history.</p>
           <div>
             {social.map((link) => (
               <div className="animation inline-block landing-p bg-gray-100 rounded-lg text-gray-900 hover:bg-gray-300 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
