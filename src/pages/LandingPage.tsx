@@ -99,6 +99,12 @@ export const LandingPage = () => {
               Trudeau 8000, representing Canada, however, there isn't enough evidence to support this claim.
             </p>
             <p className="landing-p">This website lets you relive the war by following J.T 8000's footsteps during the war. Conquer the rest of the G8 countries and win the war!</p>
+            <h2 className="landing-title">Features</h2>
+            <ul className="list-disc list-inside  landing-p">
+              <li>Fully responsive!</li>
+              <li>A chat box that you can talk to your inner self!</li>
+              <li>CSS-made, fully organic playing cards!</li>
+            </ul>
           </div>
         </div>
         <div className="landing-irrelevant"></div>
