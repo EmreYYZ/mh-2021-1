@@ -101,11 +101,7 @@ export const LandingPage = () => {
             <p className="landing-p">This website lets you relive the war by following J.T 8000's footsteps during the war. Conquer the rest of the G8 countries and win the war!</p>
           </div>
         </div>
-        <div className="landing-irrelevant">
-          <div className="m-auto">
-            <img className="object-cover h-full rounded-lg w-full" src="/Trudeau-Header-Tr.png" alt="" />
-          </div>
-        </div>
+        <div className="landing-irrelevant"></div>
       </section>
       {/* Second Section - How To Play */}
       <section className="landing-section" id="how-to">
