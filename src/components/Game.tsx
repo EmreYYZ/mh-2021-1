@@ -179,13 +179,13 @@ export const Game = () => {
   // }, []);
 
   return (
-    <div className="bg-gray-900 w-6/6 md:w-4/6 lg:w-3/6 m-auto text-white p-10">
+    <div className="bg-gray-900 w-6/6 md:w-4/6 lg:w-3/6 m-auto text-white sm:p-10">
       {/* <h2 className="font-body block">Justin Trudeau 3000 vs J0e BID3n</h2> */}
-      <div className="m-auto">
+      <div className="">
         {isGameStarted === true && gameOver === false ? (
           <div>
             <div className="flex justify-between">
-              <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
+              <div className="bg-gray-800 rounded-lg mt-0 mb-6 mr-2 inline-block p-4 font-bold">
                 <p className="text-sm font-display uppercase tracking-wider">Player</p>
                 <p className="text-2xl font-body">Score: {playerScore}</p>
                 <p className="text-sm text-gray-500 font-body">Card Count: {playerHand.length}</p>
@@ -198,7 +198,7 @@ export const Game = () => {
                   <p className="my-4">{enemyCountry}</p>
                 </div>
               </div>
-              <div className="bg-gray-800 rounded-lg my-2 mr-2 inline-block p-4 font-bold">
+              <div className="bg-gray-800 rounded-lg mt-0 mb-6 inline-block p-4 font-bold">
                 <p className="text-sm font-display uppercase tracking-wider">Opponent</p>
                 <p className="text-2xl font-body">Score: {computerScore}</p>
                 <p className="text-sm text-gray-500 font-body">Card Count: {computerHand.length}</p>
@@ -216,8 +216,8 @@ export const Game = () => {
         ) : (
           <div className="flex-initial text-center">
             <div className="my-6">
-              {playerScore === 52 && isFreshStart === false ? <p className="font-display uppercase text-gray-300 text-3xl">You win!!!!!!</p> : null}
-              {computerScore === 52 && isFreshStart === false ? <p className="font-display uppercase text-gray-300 text-3xl">Your opponent wins</p> : null}
+              {playerScore === 52 && isFreshStart === false ? <p className="font-display uppercase text-gray-300 text-3xl">You win!</p> : null}
+              {computerScore === 52 && isFreshStart === false ? <p className="font-display uppercase text-gray-300 text-3xl">Your opponent wins!</p> : null}
             </div>
             <Deck
               deck={deck}

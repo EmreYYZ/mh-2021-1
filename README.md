@@ -1,6 +1,6 @@
 # WARG8
 
-![WARG8 logo Justin Trudeau 8000](public/Trudeau8000.png)
+![WARG8 logo Justin Trudeau 8000](README-IMG-0.png)
 
 ## Index
 
