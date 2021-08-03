@@ -9,6 +9,7 @@
   - [Description](#description)
   - [Tech](#tech)
   - [Third-Party Libraries](#third-party-libraries)
+  - [Features](#features)
   - [To Run Locally](#to-run-locally)
   - [To Deploy](#to-deploy)
   - [Images from the process](#images-from-the-process)
@@ -32,6 +33,12 @@ ReactJS, TypeScript, TailwindCSS, Firebase, Adobe Photoshop, Procreate
 ## Third-Party Libraries
 
 React, Router, Lodash, DayJS, UUID, React, Icons
+
+## Features
+
+- Responsive
+- Chat Box
+- CSS cards
 
 ## To Run Locally
 
