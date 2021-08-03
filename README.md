@@ -12,6 +12,8 @@
   - [To Run Locally](#to-run-locally)
   - [To Deploy](#to-deploy)
   - [Images from the process](#images-from-the-process)
+    - [Choosing the colors](#choosing-the-colors)
+    - [Ideation](#ideation)
 
 ## Description
 
@@ -25,11 +27,11 @@ See my portfolio at -> [https://emre.la](https://emre.la)
 
 ## Tech
 
-ReactJS TypeScript TailwindCSS Adobe Photoshop Firebase
+ReactJS, TypeScript, TailwindCSS, Firebase, Adobe Photoshop, Procreate
 
 ## Third-Party Libraries
 
-React Router Lodash DayJS UUID React Icons
+React, Router, Lodash, DayJS, UUID, React, Icons
 
 ## To Run Locally
 
@@ -44,5 +46,15 @@ I deployed the app to Firebase automagically, deploy wherever you want but don't
 
 ## Images from the process
 
+Let's see how the sausage is made.
+
+### Choosing the colors
+
 These were (Jasper Red, Black, Green) the original colors I was going to go with, until I noticed that there isn't enough time to perfect the design. Plus the CMYK values depicting the selected colors didn't look as great on the screen.
 ![Image of colors](README-IMG-1.jpeg)
+
+### Ideation
+
+I used Procreate to sketch the Game/Deck/Chat components. What you will see is quite ambitious. That's why I wasn't able to do it due to time restrictions. I planned to have "Doom Guy"-esque damage states, chat messages, etc. Maybe next time!
+
+![Image of Ideation](README-IMG-2.jpeg)
