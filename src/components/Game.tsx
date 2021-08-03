@@ -196,7 +196,7 @@ export const Game = () => {
               </div>
             </div>
             <div className="text-center">
-              <button className="animate bg-scarlet-800 hover:bg-scarlet-600 font-body font-bold text-2xl px-4 py-2 rounded-lg my-2" onClick={handleClick}>
+              <button className="animate bg-scarlet-600 hover:bg-scarlet-800 font-body font-bold text-2xl px-4 py-2 rounded-lg my-2" onClick={handleClick}>
                 Play a Card
               </button>
             </div>
