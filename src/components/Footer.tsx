@@ -12,7 +12,7 @@ export const Footer = () => {
       </p>
       <p className="text-gray-700  inline-block font-bold font-body">
         Check the code on{" "}
-        <a className="hover:text-gray-400 animation text-gray-600  cursor-pointer" href="https://github.com/EmreYYZ/mh-2021-1" target="_blank" rel="noreferrer">
+        <a className="hover:text-gray-400 animation text-gray-600  cursor-pointer" href="https://github.com/EmreYYZ/warg8" target="_blank" rel="noreferrer">
           GitHub
         </a>
         .
