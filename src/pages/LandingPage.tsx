@@ -19,12 +19,16 @@ export const LandingPage = () => {
       url: "https://tailwindcss.com/",
     },
     {
-      name: "Adobe Photoshop",
-      url: "https://www.adobe.com/ca/products/photoshop.html",
-    },
-    {
       name: "Firebase",
       url: "https://firebase.google.com/",
+    },
+    {
+      name: "Procreate",
+      url: "https://procreate.art/",
+    },
+    {
+      name: "Adobe Photoshop",
+      url: "https://www.adobe.com/ca/products/photoshop.html",
     },
   ];
 
