@@ -72,7 +72,6 @@ export const Game = () => {
 
   const handleClick = () => {
     if (playerHand[0].value > computerHand[0].value) {
-      console.log(`Player wins!`);
       setPlayerScore(playerScore + 1);
       let oldPlayerCard = playerHand[0];
       let oldComputerCard = computerHand[0];
@@ -82,7 +81,6 @@ export const Game = () => {
       setPlayerHand((playerHand) => [...playerHand, oldPlayerCard]);
       setPlayerHand((playerHand) => [...playerHand, oldComputerCard]);
     } else if (playerHand[0].value < computerHand[0].value) {
-      console.log(`Computer wins!`);
       setComputerScore(computerScore + 1);
       let oldPlayerCard = playerHand[0];
       let oldComputerCard = computerHand[0];
@@ -93,21 +91,11 @@ export const Game = () => {
       setComputerHand((computerHand) => [...computerHand, oldPlayerCard]);
       setComputerHand((computerHand) => [...computerHand, oldComputerCard]);
     } else if (playerHand[0].value === computerHand[0].value) {
-      console.log(`It is a tie!`);
       war();
     }
   };
 
-  const warCheck = () => {
-    if (isWar === false) {
-      console.log(`Not at war...`);
-    } else if (isWar === true) {
-      console.log(`At war!`);
-    }
-  };
-
   const war = () => {
-    console.log(`WARRRR!!!!`);
     // check if players have enough cards to WAR. If not, lose.
     if (computerHand.length > 5 && playerHand.length > 5) {
       // console.log(`There are sufficient amount of cards in each players' hands to continue.`);
@@ -115,11 +103,9 @@ export const Game = () => {
       warRound();
     } else {
       if (computerHand.length < 5) {
-        console.log(`Computer loses the whole game.`);
         setGameOver(true);
         setIsGameStarted(false);
       } else if (playerHand.length < 5) {
-        console.log(`Player loses the whole game.`);
         setGameOver(true);
         setIsGameStarted(false);
       }
@@ -128,7 +114,6 @@ export const Game = () => {
 
   const warRound = () => {
     if (playerHand[4].value > computerHand[4].value) {
-      console.log(`Player wins the War`);
       setPlayerScore(playerScore + 5);
       let oldPlayerCards = [playerHand[0], playerHand[1], playerHand[2], playerHand[3], playerHand[4]];
       let oldComputerCards = [computerHand[0], computerHand[1], computerHand[2], computerHand[3], computerHand[4]];
@@ -143,7 +128,6 @@ export const Game = () => {
       //
       //
     } else if (playerHand[4].value < computerHand[4].value) {
-      console.log(`Computer Wins the War`);
       setComputerScore(computerScore + 5);
       let oldPlayerCards = [playerHand[0], playerHand[1], playerHand[2], playerHand[3], playerHand[4]];
       let oldComputerCards = [computerHand[0], computerHand[1], computerHand[2], computerHand[3], computerHand[4]];
