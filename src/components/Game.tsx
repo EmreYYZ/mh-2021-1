@@ -218,7 +218,7 @@ export const Game = () => {
           </div>
         )}
       </div>
-      <Chat />
+      {isGameStarted ? <Chat /> : null}
     </div>
   );
 };

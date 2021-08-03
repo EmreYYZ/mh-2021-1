@@ -96,9 +96,9 @@ export const LandingPage = () => {
           <div className="font-body">
             <p className="landing-p">
               The War of the G8 or also known as "WarG8" is a war that took place in the year 3000 between the G8 member countries for total domination. The main aggressor is thought to be Justin
-              Trudeau 8000, representing Canada, however, there aren't enough evidence to support this claim.
+              Trudeau 8000, representing Canada, however, there isn't enough evidence to support this claim.
             </p>
-            <p className="landing-p">This website let's you relive the war by following J.T 8000's footsteps during the war. Conquer the rest of the G8 countries and win the war!</p>
+            <p className="landing-p">This website lets you relive the war by following J.T 8000's footsteps during the war. Conquer the rest of the G8 countries and win the war!</p>
           </div>
         </div>
         <div className="landing-irrelevant">
@@ -115,10 +115,10 @@ export const LandingPage = () => {
           <p className="landing-p">
             <span className="font-display uppercase">WARG8</span> is a modified version of the card game <span className="font-display uppercase">WAR</span>.
           </p>
-          <p className="landing-p">In the beginning of the game, both players are given 26 cards from a 52-card standard deck.</p>
+          <p className="landing-p">At the beginning of the game, both players are given 26 cards from a 52-card standard deck.</p>
           <p className="landing-p">Each player turns up a card at the same time and the player with the higher card takes both cards and puts them, face down, on the bottom of his stack.</p>
           <p className="landing-p">
-            If the cards are the same rank, it is War. Each player turns up one card face down and one card face up. The player with the higher cards takes both piles (six cards). If the turned-up
+            If the cards are the same rank, it is War. Each player turns up one card face-down and one card face-up. The player with the higher cards takes both piles (six cards). If the turned-up
             cards are again the same rank, each player places another card face down and turns another card face up. The player with the higher card takes all 10 cards, and so on.
           </p>
         </div>
@@ -136,7 +136,7 @@ export const LandingPage = () => {
               Every <span className="font-display uppercase">war</span> win earns you 5 points.
             </li>
             <li>The player who collects 52 points or 52 cards first wins.</li>
-            <li>The player who runs out of cards or has less points loses.</li>
+            <li>The player who runs out of cards or has fewer points loses.</li>
           </ul>
         </div>
         <div className="landing-irrelevant"></div>
@@ -147,7 +147,7 @@ export const LandingPage = () => {
         <div className="landing-text-block">
           <h2 className="landing-title">About me</h2>
           <p className="landing-p">
-            My name is Emre, (Pronounced like "Em-rae") I'm a product designer with 2 years of experience turned into a front-end developer. I was born in the capital city of{" "}
+            My name is Emre, (Pronounced like "Em-rae") I'm a product designer with 2 years of experience turned front-end developer. I was born in the capital city of{" "}
             <span className="font-bold"> Turkey</span>, called <span className="font-bold"> Ankara</span>. However, I've been living in
             <span className="font-bold"> Toronto, ON Canada </span>
             for the last 5 years. In fact I just passed my citizenship test!
