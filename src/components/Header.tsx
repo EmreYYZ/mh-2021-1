@@ -6,23 +6,23 @@ export const Header = () => {
   const navigation = [
     {
       name: "What?",
-      url: "#what-is",
+      url: "/#what-is",
     },
     {
       name: "How?",
-      url: "#how-to",
+      url: "/#how-to",
     },
     {
       name: "Rules",
-      url: "#rules",
+      url: "/#rules",
     },
     {
       name: "About me",
-      url: "#about-me",
+      url: "/#about-me",
     },
     {
       name: "Tech",
-      url: "#tech",
+      url: "/#tech",
     },
   ];
 
