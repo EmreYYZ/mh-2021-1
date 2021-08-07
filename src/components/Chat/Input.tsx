@@ -47,8 +47,7 @@ export const Input: React.FC<IInputProps> = ({ chat, setChat }) => {
     <div className="mt-4">
       <form onSubmit={handleSubmit}>
         <textarea
-          name=""
-          id=""
+          required
           value={message}
           className="text-gray-50 font-body w-full px-2 py-2 rounded-lg bg-gray-900 focus:bg-gray-800 border-gray-400 focus:ring-0 border-4"
           onChange={handleChange}

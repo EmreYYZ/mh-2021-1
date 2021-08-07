@@ -10,6 +10,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={LandingPage} />
             <Route path="/play" exact component={Game} />
+            <Route path="*" component={Game} />
           </Switch>
         </Layout>
       </div>

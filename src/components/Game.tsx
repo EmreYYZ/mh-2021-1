@@ -157,11 +157,6 @@ export const Game = () => {
     }
   }, [playerHand]);
 
-  // useEffect(() => {
-  //   setPlayerScore(0);
-  //   setComputerScore(0);
-  // }, []);
-
   return (
     <div className="bg-gray-900 w-6/6 md:w-5/6 lg:w-4/6 xl:w-7/12 m-auto text-white sm:p-10">
       {/* <h2 className="font-body block">Justin Trudeau 3000 vs J0e BID3n</h2> */}
