@@ -18,13 +18,13 @@
 
 ## Description
 
-WARG8 alive at [https://war.emre.la](https://war.emre.la)
+WARG8 alive at [https://war.emre.ca](https://war.emre.ca)
 
 I'm a product designer turned to self-taught front-end developer.
 
 I designed and developed this app in around 7 days for [Mintbean Hiring Hackathon for Jr Web Devs](https://mintbean.io/meets/7e2331fb-1e0d-4b31-86b9-a46acad877af).
 
-See my portfolio at -> [https://emre.la](https://emre.la)
+See my portfolio at -> [https://emre.la](https://emre.ca)
 
 ## Tech
 
