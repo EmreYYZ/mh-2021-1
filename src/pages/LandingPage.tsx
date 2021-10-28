@@ -58,23 +58,23 @@ export const LandingPage = () => {
   const social = [
     {
       name: "Portfolio",
-      url: "https://emre.la",
+      url: "https://emre.ca",
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/johnaydin/",
+      url: "https://www.linkedin.com/in/MostlyEmre/",
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/emre.la/",
+      url: "https://www.instagram.com/MostlyEmre/",
     },
     {
       name: "GitHub",
-      url: "https://github.com/EmreYYZ",
+      url: "https://github.com/MostlyEmre",
     },
     {
       name: "Medium",
-      url: "https://medium.com/@emreca",
+      url: "https://medium.com/@mostlyemre",
     },
     {
       name: "Spotify",
@@ -86,7 +86,9 @@ export const LandingPage = () => {
     <div className="bg-gray-900 text-gray-200 font-body">
       <section className="lg:hidden  pt-10 pb-20 text-center">
         <Link to="/play">
-          <button className="px-4 animation py-2 text-xl bg-emerald-600 hover:text-white rounded-lg hover:bg-emerald-800 font-bold text-gray-50">Play the game</button>
+          <button className="px-4 animation py-2 text-xl bg-emerald-600 hover:text-white rounded-lg hover:bg-emerald-800 font-bold text-gray-50">
+            Play the game
+          </button>
         </Link>
       </section>
       {/* First Section - About */}
@@ -95,10 +97,14 @@ export const LandingPage = () => {
           <h2 className="landing-title">What is WarG8?</h2>
           <div className="font-body">
             <p className="landing-p">
-              The War of the G8 or also known as "WarG8" is a war that took place in the year 3000 between the G8 member countries for total domination. The main aggressor is thought to be Justin
-              Trudeau 8000, representing Canada, however, there isn't enough evidence to support this claim.
+              The War of the G8 or also known as "WarG8" is a war that took place in the year 3000 between the G8 member countries for total
+              domination. The main aggressor is thought to be Justin Trudeau 8000, representing Canada, however, there isn't enough evidence to
+              support this claim.
             </p>
-            <p className="landing-p">This website lets you relive the war by following J.T 8000's footsteps during the war. Conquer the rest of the G8 countries and win the war!</p>
+            <p className="landing-p">
+              This website lets you relive the war by following J.T 8000's footsteps during the war. Conquer the rest of the G8 countries and win the
+              war!
+            </p>
             <h2 className="landing-title">Features</h2>
             <ul className="list-disc list-inside  landing-p">
               <li>Fully responsive!</li>
@@ -115,13 +121,18 @@ export const LandingPage = () => {
         <div className="landing-text-block text-gray-50">
           <h2 className="landing-title">How to play?</h2>
           <p className="landing-p">
-            <span className="font-display uppercase">WARG8</span> is a modified version of the card game <span className="font-display uppercase">WAR</span>.
+            <span className="font-display uppercase">WARG8</span> is a modified version of the card game{" "}
+            <span className="font-display uppercase">WAR</span>.
           </p>
           <p className="landing-p">At the beginning of the game, both players are given 26 cards from a 52-card standard deck.</p>
-          <p className="landing-p">Each player turns up a card at the same time and the player with the higher card takes both cards and puts them, face down, on the bottom of his stack.</p>
           <p className="landing-p">
-            If the cards are the same rank, it is War. Each player turns up one card face-down and one card face-up. The player with the higher cards takes both piles (six cards). If the turned-up
-            cards are again the same rank, each player places another card face down and turns another card face up. The player with the higher card takes all 10 cards, and so on.
+            Each player turns up a card at the same time and the player with the higher card takes both cards and puts them, face down, on the bottom
+            of his stack.
+          </p>
+          <p className="landing-p">
+            If the cards are the same rank, it is War. Each player turns up one card face-down and one card face-up. The player with the higher cards
+            takes both piles (six cards). If the turned-up cards are again the same rank, each player places another card face down and turns another
+            card face up. The player with the higher card takes all 10 cards, and so on.
           </p>
         </div>
       </section>
@@ -149,15 +160,22 @@ export const LandingPage = () => {
         <div className="landing-text-block">
           <h2 className="landing-title">About me</h2>
           <p className="landing-p">
-            My name is Emre, (Pronounced like "Em-rae") I'm a product designer with 2 years of experience turned front-end developer. I was born in the capital city of{" "}
-            <span className="font-bold"> Turkey</span>, called <span className="font-bold"> Ankara</span>. However, I've been living in
+            My name is Emre, (Pronounced like "Em-rae") I'm a product designer with 2 years of experience turned front-end developer. I was born in
+            the capital city of <span className="font-bold"> Turkey</span>, called <span className="font-bold"> Ankara</span>. However, I've been
+            living in
             <span className="font-bold"> Toronto, ON Canada </span>
             for the last 5 years. In fact, I just passed my citizenship test!
           </p>
-          <p className="landing-p">I love tech. All of my hobbies revolve around tech and the biggest one is contributing to digital archiving efforts to preserve culture and history.</p>
+          <p className="landing-p">
+            I love tech. All of my hobbies revolve around tech and the biggest one is contributing to digital archiving efforts to preserve culture
+            and history.
+          </p>
           <div>
             {social.map((link) => (
-              <div className="animation inline-block landing-p bg-gray-100 rounded-lg text-gray-900 hover:bg-gray-300 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+              <div
+                className="animation inline-block landing-p bg-gray-100 rounded-lg text-gray-900 hover:bg-gray-300 mt-2 pl-4 py-1 mr-2"
+                key={uuidv4()}
+              >
                 <a className=" font-bold mr-4 inline-block" href={link.url} target="_blank" rel="noreferrer">
                   {link.name} <IoMdOpen className="inline-block" />
                 </a>
@@ -175,7 +193,10 @@ export const LandingPage = () => {
           </p>
           <div>
             {tools.map((tool) => (
-              <div className="animation inline-block landing-p rounded-lg bg-gray-700 hover:bg-gray-900  text-gray-50 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+              <div
+                className="animation inline-block landing-p rounded-lg bg-gray-700 hover:bg-gray-900  text-gray-50 mt-2 pl-4 py-1 mr-2"
+                key={uuidv4()}
+              >
                 <a className="font-bold mr-4 hover:text-gray-50 inline-block" href={tool.url} target="_blank" rel="noreferrer">
                   {tool.name} <IoMdOpen className="inline-block" />
                 </a>
@@ -187,7 +208,10 @@ export const LandingPage = () => {
           <p className="landing-p mt-4">I also used additional third-party libraries including:</p>
           <div>
             {libraries.map((library) => (
-              <div className="animation inline-block landing-p bg-gray-700 hover:bg-gray-900 rounded-lg text-gray-50 mt-2 pl-4 py-1 mr-2" key={uuidv4()}>
+              <div
+                className="animation inline-block landing-p bg-gray-700 hover:bg-gray-900 rounded-lg text-gray-50 mt-2 pl-4 py-1 mr-2"
+                key={uuidv4()}
+              >
                 <a className=" font-bold mr-4 hover:text-gray-50 inline-block" href={library.url} target="_blank" rel="noreferrer">
                   {library.name} <IoMdOpen className="inline-block" />
                 </a>
